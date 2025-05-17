@@ -1,0 +1,310 @@
+API Documentation for Patient Portal API
+
+API Name: Patient Portal API
+
+Description: Full API Collection for Receptionist & Doctor roles
+
+1. API: Login
+
+   Function: Authenticates a user and provides an authorization token.
+
+   Method: POST
+
+   Request Structure:
+     - URL: http://localhost:8080/api/login
+     - Headers:
+       - Content-Type: application/json
+     - Body (raw, JSON):
+       ```json
+       {
+         "username": "receptionist1",
+         "password": "password123"
+       }
+       ```
+
+   Response Structure:
+     - Success (200 OK):
+       ```json
+       {
+         "token": "your_auth_token_here"
+       }
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Invalid credentials"
+       }
+       ```
+
+2. API: Get All Patients (Receptionist)
+
+   Function: Retrieves a list of all patients accessible by a receptionist.
+
+   Method: GET
+
+   Request Structure:
+     - URL: http://localhost:8080/api/receptionist/patients
+     - Headers:
+       - Authorization: Bearer {{token}}
+
+   Response Structure:
+     - Success (200 OK):
+       ```json
+       [
+         {
+           "id": 1,
+           "name": "John Doe",
+           "age": 32,
+           "gender": "male"
+         },
+         {
+           "id": 2,
+           "name": "Jane Smith",
+           "age": 45,
+           "gender": "female"
+         }
+       ]
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+
+3. API: Add Patient (Receptionist)
+
+   Function: Adds a new patient record.
+
+   Method: POST
+
+   Request Structure:
+     - URL: http://localhost:8080/api/receptionist/patients
+     - Headers:
+       - Content-Type: application/json
+       - Authorization: Bearer {{token}}
+     - Body (raw, JSON):
+       ```json
+       {
+         "name": "John Doe",
+         "age": 32,
+         "gender": "male"
+       }
+       ```
+
+   Response Structure:
+     - Success (201 Created):
+       ```json
+       {
+         "id": 3,
+         "name": "John Doe",
+         "age": 32,
+         "gender": "male"
+       }
+       ```
+     - Error (400 Bad Request):
+       ```json
+       {
+         "message": "Invalid patient data"
+       }
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+
+4. API: Update Patient (Receptionist)
+
+   Function: Updates an existing patient record.
+
+   Method: PUT
+
+   Request Structure:
+     - URL: http://localhost:8080/api/receptionist/patients/1 (where '1' is the patient ID)
+     - Headers:
+       - Content-Type: application/json
+       - Authorization: Bearer {{token}}
+     - Body (raw, JSON):
+       ```json
+       {
+         "name": "John Updated",
+         "age": 33,
+         "gender": "male"
+       }
+       ```
+
+   Response Structure:
+     - Success (200 OK):
+       ```json
+       {
+         "id": 1,
+         "name": "John Updated",
+         "age": 33,
+         "gender": "male"
+       }
+       ```
+     - Error (400 Bad Request):
+       ```json
+       {
+         "message": "Invalid patient data"
+       }
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+     - Error (404 Not Found):
+       ```json
+       {
+         "message": "Patient not found"
+       }
+       ```
+
+5. API: Delete Patient (Receptionist)
+
+   Function: Deletes a patient record.
+
+   Method: DELETE
+
+   Request Structure:
+     - URL: http://localhost:8080/api/receptionist/patients/1 (where '1' is the patient ID)
+     - Headers:
+       - Authorization: Bearer {{token}}
+
+   Response Structure:
+     - Success (204 No Content)
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+     - Error (404 Not Found):
+       ```json
+       {
+         "message": "Patient not found"
+       }
+       ```
+
+6. API: Get Patient by ID (Doctor)
+
+   Function: Retrieves a single patient record by ID, accessible by a doctor.
+
+   Method: GET
+
+   Request Structure:
+     - URL: http://localhost:8080/api/doctor/patients/1 (where '1' is the patient ID)
+     - Headers:
+       - Authorization: Bearer {{token}}
+
+   Response Structure:
+     - Success (200 OK):
+       ```json
+       {
+         "id": 1,
+         "name": "John Doe",
+         "age": 32,
+         "gender": "male",
+         "notes": "Patient recovering well. Continue medication."
+       }
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+     - Error (404 Not Found):
+       ```json
+       {
+         "message": "Patient not found"
+       }
+       ```
+
+7. API: Update Notes (Doctor)
+
+   Function: Updates the medical notes for a specific patient.
+
+   Method: PUT
+
+   Request Structure:
+     - URL: http://localhost:8080/api/doctor/patients/1/notes (where '1' is the patient ID)
+     - Headers:
+       - Content-Type: application/json
+       - Authorization: Bearer {{token}}
+     - Body (raw, JSON):
+       ```json
+       {
+         "notes": "Patient recovering well. Continue medication."
+       }
+       ```
+
+   Response Structure:
+     - Success (200 OK):
+       ```json
+       {
+         "id": 1,
+         "name": "John Doe",
+         "age": 32,
+         "gender": "male",
+         "notes": "Patient recovering well. Continue medication."
+       }
+       ```
+     - Error (400 Bad Request):
+       ```json
+       {
+         "message": "Invalid notes data"
+       }
+       ```
+     - Error (401 Unauthorized):
+       ```json
+       {
+         "message": "Unauthorized access"
+       }
+       ```
+     - Error (403 Forbidden):
+       ```json
+       {
+         "message": "Access denied"
+       }
+       ```
+     - Error (404 Not Found):
+       ```json
+       {
+         "message": "Patient not found"
+       }
+       ```
