@@ -1,4 +1,4 @@
-Golang Patient Portal API
+Golang Patient Portal 
 
 A backend web application built using Golang (Gin framework) with PostgreSQL. It provides role-based portals for Receptionists and Doctors to manage and access patient information.
 
