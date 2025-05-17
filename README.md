@@ -2,7 +2,7 @@ Golang Patient Portal
 
 A backend web application built using Golang (Gin framework) with PostgreSQL. It provides role-based portals for Receptionists and Doctors to manage and access patient information.
 
-Features
+Features  
 JWT-based Authentication  
 Single Login API for Receptionist and Doctor  
 Receptionist: Create, View, Update, and Delete Patients  
@@ -14,13 +14,13 @@ Unit Tests
 
 Project Structure
 
-project/
-├── cmd/                         # Application entrypoint
-├── config/                      # DB config
-├── controllers/                 # Route handlers
-├── middlewares/                 # Auth middleware
-├── models/                        # GORM models
-├── repository/                  # Data access layer
+project/  
+├── cmd/                           # Application entrypoint  
+├── config/                        # DB config  
+├── controllers/                 # Route handlers  
+├── middlewares/                 # Auth middleware  
+├── models/                        # GORM models  
+├── repository/                  # Data access layer  
 ├── routes/                        # Route definitions
 ├── services/                      # Business logic
 ├── utils/                         # Helper functions (e.g., JWT)
@@ -28,6 +28,8 @@ project/
 ├── docs/                          # Postman collection
 ├── go.mod / go.sum              # Go module files
 └── README.md
+
+
 Setup Instructions
 Clone the Repository
 ```bash
