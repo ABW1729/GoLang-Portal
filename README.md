@@ -25,7 +25,7 @@ project/
 ├── services/                      # Business logic  
 ├── utils/                         # Helper functions (e.g., JWT)  
 ├── test/                          # Unit tests  
-├── docs/                          # Postman collection  
+├── docs/                          # Documentation  
 ├── go.mod / go.sum              # Go module files  
 └── README.md  
 
@@ -73,4 +73,4 @@ GET /api/doctor/patients/:id
 PUT /api/doctor/patients/:id/notes  
 
 API Documentation  
-Import docs/postman_collection.json into Postman  
+docs/postman_collection.txt file contains API documentations
