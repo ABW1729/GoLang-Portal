@@ -60,17 +60,17 @@ Run Unit Tests
 go test ./test/...
 ```
 
-API Endpoints
-Auth
-POST /api/loginReceptionist
-POST /api/receptionist/patients
-GET /api/receptionist/patients
-PUT /api/receptionist/patients/:id
-DELETE /api/receptionist/patients/:id
+API Endpoints  
+Auth  
+POST /api/loginReceptionist  
+POST /api/receptionist/patients  
+GET /api/receptionist/patients  
+PUT /api/receptionist/patients/:id  
+DELETE /api/receptionist/patients/:id    
 
-Doctor
-GET /api/doctor/patients/:id
-PUT /api/doctor/patients/:id/notes
+Doctor  
+GET /api/doctor/patients/:id  
+PUT /api/doctor/patients/:id/notes  
 
-API Documentation
-Import docs/postman_collection.json into Postman
+API Documentation  
+Import docs/postman_collection.json into Postman  
