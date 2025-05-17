@@ -20,14 +20,14 @@ project/
 ├── controllers/                 # Route handlers  
 ├── middlewares/                 # Auth middleware  
 ├── models/                        # GORM models  
-├── repository/                  # Data access layer  
-├── routes/                        # Route definitions
-├── services/                      # Business logic
-├── utils/                         # Helper functions (e.g., JWT)
-├── test/                          # Unit tests
-├── docs/                          # Postman collection
-├── go.mod / go.sum              # Go module files
-└── README.md
+├── repository/                  # Data access layer    
+├── routes/                        # Route definitions  
+├── services/                      # Business logic  
+├── utils/                         # Helper functions (e.g., JWT)  
+├── test/                          # Unit tests  
+├── docs/                          # Postman collection  
+├── go.mod / go.sum              # Go module files  
+└── README.md  
 
 
 Setup Instructions
